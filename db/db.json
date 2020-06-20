@@ -51,5 +51,30 @@
       "id": "mp9Z__n"
     }
   ],
-  "notes": []
+  "notes": [
+    {
+      "id": "idjskefoefe",
+      "title": "First note",
+      "content": "This is my first note!",
+      "authorId": "PGXXBMD",
+      "authorName": "Yoana",
+      "date": "12.01.2020"
+    },
+    {
+      "title": "hey",
+      "content": "hhhhh",
+      "authorId": "PGXXBMD",
+      "authorName": "Yoana",
+      "date": "2020-06-20T16:27:44.773Z",
+      "id": "aQngIEX"
+    },
+    {
+      "title": "dsd",
+      "content": "sd",
+      "authorId": "PGXXBMD",
+      "authorName": "Yoana",
+      "date": "2020-06-20T16:28:00.377Z",
+      "id": "bQdRyES"
+    }
+  ]
 }
