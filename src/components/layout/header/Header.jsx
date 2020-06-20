@@ -29,13 +29,18 @@ export function Header() {
               <Link className="nav-link" to="/">Home</Link>
             </li>
             {!isLoggedOut && getLoggeduser().isAdmin &&
-              <li className="nav-item">
-                <Link className="nav-link" to="/users">Users</Link>
-              </li>
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/users">Users</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/all-tasks">All Tasks</Link>
+                </li>
+              </>
             }
-            <li className="nav-item">
-              <Link className="nav-link" to="/tasks">Tasks</Link>
-            </li>
+             <li className="nav-item">
+                <Link className="nav-link" to="/tasks">My Tasks</Link>
+              </li>
             <li className="nav-item">
               <Link className="nav-link" to="/tasks/create">Create task</Link>
             </li>

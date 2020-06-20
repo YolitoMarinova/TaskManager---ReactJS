@@ -11,6 +11,13 @@ export function getTaskById(id) {
     return axios.get(`${tasksUrl}/${id}`)
 }
 
+export async function getTasksByUser() {
+    const userId = getLoggeduser().id;
+    const alltasks = (await getAllTasks()).data;
+
+    return alltasks.filter(t => t.authorId === userId);
+}
+
 export function saveTask(taskData) {
     const loggedUser = getLoggeduser();
 
@@ -20,8 +27,12 @@ export function saveTask(taskData) {
 
     taskData.authorId = loggedUser.id;
     taskData.authorName = loggedUser.name;
-    taskData.status = 
-    taskData.date = new Date();
+    taskData.status =
+        taskData.date = new Date();
 
     return axios.post(tasksUrl, taskData);
+}
+
+export function deleteTask(id) {
+    return axios.delete(`${tasksUrl}/${id}`);
 }

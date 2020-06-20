@@ -43,17 +43,6 @@
       "isAdmin": true,
       "picture": "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=ji6Xj8tv",
       "id": "PGXXBMD"
-    },
-    {
-      "name": "fef",
-      "age": "022",
-      "username": "ef",
-      "email": "fe@f",
-      "password": "fe",
-      "isActive": true,
-      "isAdmin": false,
-      "picture": "https://cdn.psychologytoday.com/sites/default/files/styles/image-article_inline_full/public/field_blog_entry_images/2018-09/shutterstock_648907024.jpg?itok=ji6Xj8tv",
-      "id": "p7dt6As"
     }
   ],
   "tasks": [
@@ -76,26 +65,6 @@
       "authorName": "Yoana",
       "date": "2020-06-20T16:27:44.773Z",
       "id": "aQngIEX"
-    },
-    {
-      "title": "dsd",
-      "content": "sd",
-      "rate": "6",
-      "status": "done",
-      "authorId": "PGXXBMD",
-      "authorName": "Yoana",
-      "date": "2020-06-20T16:28:00.377Z",
-      "id": "bQdRyES"
-    },
-    {
-      "title": "dsd",
-      "content": "sd",
-      "rate": "6",
-      "status": "done",
-      "authorId": "PGXXBMD",
-      "authorName": "Yoana",
-      "date": "2020-06-20T16:28:00.377Z",
-      "id": "bQdRyES"
     },
     {
       "title": "dsd",

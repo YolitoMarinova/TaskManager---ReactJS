@@ -19,7 +19,7 @@ export function UsersList() {
             setUsers((prevState) => {
                 return prevState.filter(u => u.id !== id);
             })
-        }).catch((err) => err)
+        }).catch((err) => console.error(err))
     }
 
     return (

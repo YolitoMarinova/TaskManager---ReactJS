@@ -1,3 +1,10 @@
 .card {
     max-width: 18rem;
 }
+
+svg {
+    color: black;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+} 
