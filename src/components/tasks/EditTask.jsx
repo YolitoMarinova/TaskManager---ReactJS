@@ -34,13 +34,15 @@ export function EditTask(props) {
     return (
         <>
             {isSucces && <Redirect to="/tasks"></Redirect>}
-            <div className="task-edit-wapper">
-                <form action="" className="user-edit-form" onSubmit={onTaskSave}>
-                    <input type="text" id="title" name="title" placeholder="title" onChange={onInputChange} value={currTask.title} />
-                    <input type="text" id="content" name="content" placeholder="content" onChange={onInputChange} value={currTask.content} />
-                    <input type="text" id="status" name="status" placeholder="status" onChange={onInputChange} value={currTask.status} />
-                    <input type="submit" value="Update" />
-                </form>
+            <div className="container">
+                <div className="task-edit-wapper">
+                    <form action="" className="user-edit-form" onSubmit={onTaskSave}>
+                        <input type="text" id="title" name="title" placeholder="title" onChange={onInputChange} value={currTask.title} />
+                        <input type="text" id="content" name="content" placeholder="content" onChange={onInputChange} value={currTask.content} />
+                        <input type="text" id="status" name="status" placeholder="status" onChange={onInputChange} value={currTask.status} />
+                        <input type="submit" value="Update" />
+                    </form>
+                </div>
             </div>
         </>
     )

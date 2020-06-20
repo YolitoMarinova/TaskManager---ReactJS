@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { logOut, getLoggeduser } from '../../../core/api/users.api';
 import { useState } from 'react';
-
+import './../../../../node_modules/font-awesome/css/font-awesome.css';
+import './Header.css';
 
 export function Header() {
 
@@ -17,8 +18,8 @@ export function Header() {
   return (
     <>
       {isLoggedOut && <Redirect to="/login" />}
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">Navbar</a>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" id="header">
+        <Link className="navbar-brand" to="/"><i className="fa fa-stack-exchange"></i></Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -28,27 +29,21 @@ export function Header() {
             <li className="nav-item active">
               <Link className="nav-link" to="/">Home</Link>
             </li>
-            {!isLoggedOut && getLoggeduser().isAdmin &&
-              <>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/users">Users</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/all-tasks">All Tasks</Link>
-                </li>
-              </>
-            }
-             <li className="nav-item">
-                <Link className="nav-link" to="/tasks">My Tasks</Link>
+            {(!isLoggedOut && getLoggeduser().isAdmin) &&
+              <li className="nav-item">
+                <Link className="nav-link" to="/users">Users</Link>
               </li>
+            }
+            <li className="nav-item">
+              <Link className="nav-link" to="/all-tasks">All Tasks</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/tasks">My Tasks</Link>
+            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/tasks/create">Create task</Link>
             </li>
-          </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          </ul>          
           <button className="btn btn-secondary" onClick={onLogout}>Log out</button>
         </div>
       </nav>
