@@ -9,6 +9,7 @@ export function DisplayUser({ user }) {
                 <img src={user.picture} alt="userPicture"></img>
             </div>
             <div className="info-holder">
+            <Link to={`/users/edit/${user.id}`}>Edit</Link>
                 <span className="name"><p>Name: <Link to={`/users/${user.id}`}>{user.name}</Link></p></span>
                 <span className="age"><p>Age: {user.age}</p></span>
                 <span className="email"><p>Email: {user.email}</p></span>

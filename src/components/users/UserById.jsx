@@ -12,7 +12,7 @@ export class UserById extends Component {
     }
 
     componentDidMount() {
-        getUserById(this.props.match.params.id).then(response => {
+        getUserById(this.props.computedMatch.params.id).then(response => {
             this.setState({
                 user: response.data
             });
