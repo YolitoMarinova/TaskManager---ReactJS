@@ -11,11 +11,12 @@ export function DisplayUser({ user, onDelete }) {
         <div className="card">
             <img className="card-img-top" src={user.picture} alt="userPicture"></img>
             <div className="card-body">
-                <h5 className="card-title"><p>Name: <Link to={`/users/${user.id}`}>{user.name}</Link></p></h5>
+                <h5 className="card-title"><p><Link to={`/users/${user.id}`}>{user.username}</Link></p></h5>
             </div>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item">Age: {user.age}</li>
-                <li className="list-group-item">Email: {user.email}</li>
+                <li className="list-group-item">Name: {user.name}</li>
+                <li className="list-group-item">Email:<br/>{user.email}</li>
             </ul>
             <div className="card-body">
                 {loggedUser.isAdmin &&

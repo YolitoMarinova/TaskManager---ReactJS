@@ -41,7 +41,7 @@ export function Login(props) {
                     </div>
                     <form onSubmit={onFormSubmit}>
                         {errorMessage && <span className="text-danger">{errorMessage}</span>}
-                        <input type="email" id="email" className="fadeIn second" name="email" placeholder="email" onChange={onInputChange} />
+                        <input type="text" id="username" className="fadeIn second" name="username" placeholder="username" onChange={onInputChange} />
                         <input type="password" id="password" className="fadeIn third" name="password" placeholder="password" onChange={onInputChange} />
                         <input type="submit" className="fadeIn fourth" value="Login" />
                     </form>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { logOut } from '../../../core/api/users.api';
+import { logOut, getLoggeduser } from '../../../core/api/users.api';
 import { useState } from 'react';
 
 
 export function Header() {
 
   const [isLoggedOut, setLoggOutFlag] = useState(false);
+
 
   const onLogout = (event) => {
     logOut();
@@ -15,7 +16,7 @@ export function Header() {
 
   return (
     <>
-    {isLoggedOut && <Redirect to="/login" />}
+      {isLoggedOut && <Redirect to="/login" />}
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#">Navbar</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +28,17 @@ export function Header() {
             <li className="nav-item active">
               <Link className="nav-link" to="/">Home</Link>
             </li>
+            {!isLoggedOut && getLoggeduser().isAdmin &&
+              <li className="nav-item">
+                <Link className="nav-link" to="/users">Users</Link>
+              </li>
+            }
             <li className="nav-item">
-              <Link className="nav-link" to="/users">Users</Link>
-            </li>  
+              <Link className="nav-link" to="/tasks">Tasks</Link>
+            </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/notes">Notes</Link>
-            </li>    
-            <li className="nav-item">
-              <Link className="nav-link" to="/notes/create">Create note</Link>
-            </li>           
+              <Link className="nav-link" to="/tasks/create">Create task</Link>
+            </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />

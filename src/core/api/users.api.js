@@ -17,7 +17,10 @@ export function getLoggeduser() {
 export async function register(userData) {
     const users = (await getAllUsers()).data;
 
-    if (users.find(u => u.email === userData.email)) {
+    if (users.find(u => u.username === userData.username)) {
+        throw new Error("Username already exist!");
+    }
+    else if (users.find(u => u.email === userData.email)) {
         throw new Error("Email already exist!");
     }
 
@@ -34,7 +37,7 @@ export async function register(userData) {
 export async function login(userData) {
     const users = (await getAllUsers()).data;
 
-    const loggedUser = users.find(u => u.email === userData.email && u.password.toString() === userData.password);
+    const loggedUser = users.find(u => u.username === userData.username && u.password.toString() === userData.password);
 
     if (loggedUser && !loggedUser.isActive) {
         throw new Error('Current account has been locked!');

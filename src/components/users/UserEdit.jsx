@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 
 export function UserEdit(props) {
 
-    const [editedUser, setEditedUser] = useState({ name: '', age: 0, email: '', password: '', isActive: false, isAdmin: false });
+    const [editedUser, setEditedUser] = useState({ name: '', age: 0, username: '', email: '', password: '', isActive: false, isAdmin: false });
     const [isSuccess, setIsSucces] = useState(false);
 
     useEffect(() => {
@@ -35,10 +35,11 @@ export function UserEdit(props) {
 
     return (
         <>
-        {isSuccess && <Redirect to="/users"></Redirect>}
+            {isSuccess && <Redirect to="/users"></Redirect>}
             <div className="user-edit-wapper">
                 <form action="" className="user-edit-form" onSubmit={onFormSubmit}>
                     <input type="text" id="name" className="reg-fadeIn second" name="name" placeholder="name" onChange={onInputChange} value={editedUser.name} />
+                    <input type="text" id="username" className="reg-fadeIn second" name="username" placeholder="username" onChange={onInputChange} value={editedUser.username} />
                     <input type="email" id="email" className="reg-fadeIn second" name="email" placeholder="email" onChange={onInputChange} value={editedUser.email} />
                     <input type="password" id="password" className="reg-fadeIn third" name="password" placeholder="password" onChange={onInputChange} value={editedUser.password} />
                     <input type="number" id="age" className="reg-fadeIn second" name="age" placeholder="age" onChange={onInputChange} value={editedUser.age} /><br />

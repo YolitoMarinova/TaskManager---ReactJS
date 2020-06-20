@@ -1,6 +1,6 @@
 .card{
     width: 18rem;
-    margin: 30px;
+    margin: 10px;
 }
 
 .card-img-top{
@@ -13,3 +13,7 @@ svg {
     height: 25px;
     cursor: pointer;
 } 
+
+.create-link{
+    margin: 30px;;
+}
