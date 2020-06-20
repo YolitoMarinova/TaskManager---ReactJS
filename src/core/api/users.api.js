@@ -36,6 +36,10 @@ export async function login(userData) {
 
     const loggedUser = users.find(u => u.email === userData.email && u.password.toString() === userData.password);
 
+    if (loggedUser && !loggedUser.isActive) {
+        throw new Error('Current account has been locked!');
+    }
+
     if (loggedUser) {
         localStorage.setItem('loggedUser', JSON.stringify(loggedUser));
         return;
@@ -47,6 +51,13 @@ export function logOut() {
     localStorage.removeItem('loggedUser');
 }
 
-export function editUser(userData) {
-    return axios.put(`${usersUrl}/${userData.id}`, userData)
+export function saveUser(userData) {
+    if (userData.id) {
+        return axios.put(`${usersUrl}/${userData.id}`, userData)
+    }
+    return register(userData);
+}
+
+export function deleteUser(id) {
+    return axios.delete(`${usersUrl}/${id}`);
 }

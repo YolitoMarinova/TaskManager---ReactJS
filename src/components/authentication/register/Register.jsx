@@ -14,7 +14,8 @@ export class Register extends Component {
             email: '',
             password: '',
             age: '',
-            isRegister: false
+            isRegister: false,
+            errorMessage: ''
         }
     }
 
@@ -22,21 +23,22 @@ export class Register extends Component {
         event.persist();
 
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            errorMessage: ''
         });
     }
 
     onSubmit = (event) => {
         event.preventDefault();
 
-        const {isRegister, ...user} = this.state;
+        const { isRegister, ...user } = this.state;
 
         register(user).then(() => {
             this.setState({
                 isRegister: true
             });
 
-        }).catch((err) => console.error(err));
+        }).catch((err) => this.setState({ errorMessage: err.message }));
     }
 
     render() {
@@ -49,10 +51,11 @@ export class Register extends Component {
                             <h1>Register</h1>
                         </div>
                         <form onSubmit={this.onSubmit}>
-                            <input type="text" id="name" className="reg-fadeIn second" name="name" placeholder="name" onChange={this.onInputChange} />
-                            <input type="email" id="email" className="reg-fadeIn second" name="email" placeholder="email" onChange={this.onInputChange} />
-                            <input type="password" id="password" className="reg-fadeIn third" name="password" placeholder="password" onChange={this.onInputChange} />
-                            <input type="number" id="age" className="reg-fadeIn second" name="age" placeholder="age" onChange={this.onInputChange} />
+                            {this.state.errorMessage && <span className="text-danger">{this.state.errorMessage}</span>}
+                            <input type="text" id="name" className="reg-fadeIn second" name="name" placeholder="name" onChange={this.onInputChange} required />
+                            <input type="email" id="email" className="reg-fadeIn second" name="email" placeholder="email" onChange={this.onInputChange} required />
+                            <input type="password" id="password" className="reg-fadeIn third" name="password" placeholder="password" onChange={this.onInputChange} required />
+                            <input type="number" id="age" className="reg-fadeIn second" name="age" placeholder="age" onChange={this.onInputChange} required />
                             <input type="submit" className="reg-fadeIn fourth" value="Register" />
                         </form>
                         <div id="reg-formFooter">

@@ -8,6 +8,7 @@ export function Login(props) {
 
     const [userData, setUserData] = useState({});
     const [isLoggedUser, setLoggedUser] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
     const onInputChange = (event) => {
         event.persist();
@@ -16,6 +17,8 @@ export function Login(props) {
             ...prevState,
             [event.target.name]: event.target.value
         }));
+
+        setErrorMessage('');
     };
 
     const onFormSubmit = (event) => {
@@ -25,7 +28,7 @@ export function Login(props) {
             console.log('Login succsed');
             setLoggedUser(true);
         })
-            .catch((err) => console.error(err));
+            .catch((err) => setErrorMessage(err.message));
     };
 
     return (
@@ -37,12 +40,13 @@ export function Login(props) {
                         <h1>Login</h1>
                     </div>
                     <form onSubmit={onFormSubmit}>
+                        {errorMessage && <span className="text-danger">{errorMessage}</span>}
                         <input type="email" id="email" className="fadeIn second" name="email" placeholder="email" onChange={onInputChange} />
                         <input type="password" id="password" className="fadeIn third" name="password" placeholder="password" onChange={onInputChange} />
                         <input type="submit" className="fadeIn fourth" value="Login" />
                     </form>
                     <div id="formFooter">
-                    <Link to='/register'>Register</Link>
+                        <Link to='/register'>Register</Link>
                     </div>
                 </div>
             </div>
